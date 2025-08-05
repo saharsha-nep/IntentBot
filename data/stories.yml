@@ -1,0 +1,9 @@
+version: "3.1"
+
+stories:
+- story: topup (with or without amount)
+  steps:
+    - intent: topup
+    - action: action_handle_topup
+    - intent: inform
+    - action: action_handle_topup

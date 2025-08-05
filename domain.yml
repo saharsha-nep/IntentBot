@@ -1,0 +1,35 @@
+version: "3.1"
+
+intents:
+  - topup
+  - inform
+  - greet
+
+entities:
+  - amount
+
+slots:
+  amount:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: amount
+
+responses:
+  utter_ask_amount:
+    - text: "How much would you like to top up?"
+  utter_confirm_topup:
+    - text: "Got it, topping up {amount} rupees."
+  utter_greet:
+    - text: "What can I help you with today?"
+  utter_default:
+    - text: "Sorry, I didn't get that. Can you rephrase?"
+
+actions:
+  - action_handle_topup
+  - action_default_fallback
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

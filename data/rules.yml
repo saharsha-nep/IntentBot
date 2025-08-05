@@ -1,0 +1,13 @@
+version: "3.1"
+
+rules:
+
+- rule: Handle topup
+  steps:
+    - intent: topup
+    - action: action_handle_topup
+
+- rule: Greet user on start
+  steps:
+    - intent: greet
+    - action: utter_greet

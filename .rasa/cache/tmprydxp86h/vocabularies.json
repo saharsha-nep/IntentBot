@@ -1,0 +1,51 @@
+{
+  "text": {
+    "i": 9,
+    "want": 24,
+    "a": 1,
+    "topup": 22,
+    "of": 13,
+    "__number__": 0,
+    "please": 14,
+    "recharge": 15,
+    "rs": 16,
+    "top": 21,
+    "up": 23,
+    "add": 2,
+    "to": 20,
+    "my": 12,
+    "balance": 4,
+    "for": 7,
+    "can": 5,
+    "get": 8,
+    "credited": 6,
+    "rupees": 17,
+    "it": 11,
+    "s": 18,
+    "the": 19,
+    "amount": 3,
+    "is": 10
+  },
+  "intent": {
+    "topup": 1,
+    "inform": 0
+  },
+  "response": null,
+  "action_name": {
+    "action_listen": 7,
+    "action_restart": 8,
+    "action_session_start": 10,
+    "action_default_fallback": 4,
+    "action_deactivate_loop": 1,
+    "action_revert_fallback_events": 9,
+    "action_default_ask_affirmation": 2,
+    "action_default_ask_rephrase": 3,
+    "action_two_stage_fallback": 11,
+    "action_unlikely_intent": 12,
+    "action_back": 0,
+    "action_extract_slots": 5,
+    "action_handle_topup": 6
+  },
+  "action_text": null,
+  "intent_response_key": null
+}

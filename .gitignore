@@ -1,0 +1,11 @@
+venv/
+models/
+__pycache__/
+venv/
+models/
+__pycache__/
+*.tar.gz
+*.zip
+.env
+.vscode/
+.idea/

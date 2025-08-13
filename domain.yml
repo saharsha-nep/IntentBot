@@ -4,9 +4,12 @@ intents:
   - topup
   - inform
   - greet
+  - pay_utility
+  - check_balance
 
 entities:
   - amount
+  - utility
 
 slots:
   amount:
@@ -15,6 +18,12 @@ slots:
     mappings:
       - type: from_entity
         entity: amount
+  utility:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: utility
 
 responses:
   utter_ask_amount:

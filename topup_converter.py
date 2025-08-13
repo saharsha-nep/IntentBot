@@ -9,17 +9,24 @@ def str_presenter(dumper, data):
 
 yaml.add_representer(str, str_presenter)
 
+def normalize_example(text):
+    """Remove entity values for duplicate detection (amounts replaced with placeholder)."""
+    # Replace numbers with a standard placeholder for comparison
+    text_no_amount = re.sub(r'\[\d+\]\(amount\)', '[AMOUNT](amount)', text)
+    return text_no_amount.lower().strip()
+
 def text_to_rasa_nlu_append(txt_file, nlu_file):
     with open(txt_file, "r", encoding="utf-8") as f:
         lines = [line.strip() for line in f if line.strip()]
 
-    examples = []
+    # Convert new lines
+    new_examples = []
     for line in lines:
-        new_line = re.sub(r'(\d+)', r'[\1](amount)', line, count=1)
-        examples.append(f"- {new_line}")
+        # Tag first number as amount
+        tagged = re.sub(r'(\d+)', r'[\1](amount)', line, count=1)
+        new_examples.append(f"- {tagged}")
 
-    new_examples_text = "\n".join(examples).rstrip('\n') 
-
+    # Load YAML
     with open(nlu_file, "r", encoding="utf-8") as f:
         data = yaml.safe_load(f)
 
@@ -33,14 +40,30 @@ def text_to_rasa_nlu_append(txt_file, nlu_file):
         topup_intent = {"intent": "topup", "examples": ""}
         nlu_list.append(topup_intent)
 
+    # Get existing examples and normalize for duplicate detection
     if topup_intent.get("examples"):
-        existing = topup_intent["examples"].rstrip('\n')
-        topup_intent["examples"] = existing + "\n" + new_examples_text
+        existing_lines = [line.strip() for line in topup_intent["examples"].split("\n") if line.strip()]
     else:
-        topup_intent["examples"] = new_examples_text
+        existing_lines = []
+
+    normalized_existing = {normalize_example(e) for e in existing_lines}
+
+    # Filter out new examples that are duplicates ignoring amounts
+    unique_new = []
+    for ex in new_examples:
+        if normalize_example(ex) not in normalized_existing:
+            unique_new.append(ex)
+            normalized_existing.add(normalize_example(ex))
+
+    # Append only unique examples
+    if existing_lines:
+        topup_intent["examples"] = "\n".join(existing_lines + unique_new)
+    else:
+        topup_intent["examples"] = "\n".join(unique_new)
 
     data["nlu"] = nlu_list
 
+    # Write YAML
     with open(nlu_file, "w", encoding="utf-8") as f:
         yaml.dump(data, f, sort_keys=False, allow_unicode=True)
 

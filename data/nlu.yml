@@ -3,77 +3,21 @@ nlu:
 - intent: topup
   examples: |-
     - I want a topup of [10](amount)
-    - Please recharge [50](amount) rs
-    - Add [100](amount) to my balance
-    - Recharge for [75](amount)
-    - Can I get [200](amount) credited?
-    - Top up [20](amount)
-    - Add [40](amount) to my account's balance
-    - Recharge [50](amount)rs
-    - Please add [15](amount) to my balance
-    - Charge my account with [60](amount)
-    - Add balance [25](amount)
-    - Could you recharge [45](amount) for me?
-    - I want to add [55](amount) to my balance
-    - Recharge my account with [65](amount)
-    - Top up my balance by [80](amount)
-    - I want to topup [10](amount)
-    - Please add [50](amount) to my balance
-    - Recharge my account with [100](amount)
-    - Add [20](amount) rupees to my account
-    - Top up [75](amount) rs
-    - Can you credit [30](amount) to my phone?
-    - Recharge [200](amount) now
-    - Add balance [150](amount) please
-    - Charge my account with [60](amount)
-    - Please recharge [40](amount) rs
-    - I want to topup [10](amount)
-    - Please add [50](amount) to my balance
-    - Recharge my account with [100](amount)
-    - Add [20](amount) rupees to my account
-    - Top up [75](amount) rs
-    - Can you credit [30](amount) to my phone?
-    - Recharge [200](amount) now
-    - Add balance [150](amount) please
-    - Charge my account with [60](amount)
-    - Please recharge [40](amount) rs
-    - I want a topup of [10](amount)
-    - Please recharge [50](amount) rs
-    - Add [100](amount) to my balance
-    - Recharge for [75](amount)
-    - Can I get [200](amount) credited?
-    - Top up [20](amount)
-    - Add [40](amount) to my account's balance
-    - Recharge [50](amount) rs
-    - Please add [15](amount) to my balance
-    - Charge my account with [60](amount)
-    - Add balance [25](amount)
-    - Could you recharge [45](amount) for me?
-    - I want to add [55](amount) to my balance
-    - Recharge my account with [65](amount)
-    - Top up my balance by [80](amount)
-    - I want to topup [10](amount)
-    - Please add [50](amount) to my balance
-    - Recharge my account with [100](amount)
-    - Add [20](amount) rupees to my account
-    - Top up [75](amount) rs
-    - Can you credit [30](amount) to my phone?
-    - Recharge [200](amount) now
-    - Add balance [150](amount) please
-    - Charge my account with [60](amount)
-    - Please recharge [40](amount) rs
-    - Need a topup of [85](amount)
-    - Recharge [120](amount) immediately
-    - Add [90](amount) balance now
-    - Please credit [35](amount) to my account
-    - Topup [60](amount) rs ASAP
-    - Add [110](amount) to my phone balance
-    - Recharge [25](amount) now please
-    - Add [70](amount) rupees
-    - Credit [15](amount) to my account
-    - Top up [55](amount) rupees
-    - Recharge [95](amount) for me
-    - Please add [80](amount) now
+    - add [50](amount) to my balance
+    - credit [100](amount) to my account
+    - top up with [75](amount)
+    - can I add [30](amount) to my phone balance
+    - recharge my account with [200](amount)
+    - please topup [60](amount)
+    - put [90](amount) credit on my account
+    - load [120](amount) onto my balance
+    - I want to add [40](amount) balance
+    - increase my balance by [150](amount)
+    - give me a top up of [80](amount)
+    - add money to my account
+    - make a recharge of [100](amount)
+    - load credit [200](amount)
+    - can you add [25](amount) to my balance
 - intent: greet
   examples: |-
     - hello
@@ -89,3 +33,31 @@ nlu:
     - What is the recharge amount?
     - Please mention topup amount.
     - Please mention recharge amount.
+- intent: pay_utility
+  examples: |-
+    - pay [water](utility) bill
+    - settle my [electricity](utility) bill
+    - I want to pay the [internet](utility) bill
+    - pay [150](amount) for [gas](utility)
+    - can you pay my [water](utility) bill of [50](amount)
+    - make a payment of [200](amount) towards [electricity](utility)
+    - pay [75](amount) for [internet](utility) service
+    - I need to settle the [gas](utility) bill
+    - pay the [water](utility) bill for [100](amount)
+    - please pay my [electricity](utility) bill
+    - pay [internet](utility) bill of [120](amount)
+    - can you settle my [gas](utility) bill
+    - make payment of [180](amount) for [electricity](utility)
+    - pay my [internet](utility) bill now
+- intent: check_balance
+  examples: |-
+    - check my balance
+    - what's my balance
+    - show my account balance
+    - how much money do I have
+    - get my balance
+    - check account balance
+    - how much is in my account
+    - account balance please
+    - show balance
+    - balance inquiry
